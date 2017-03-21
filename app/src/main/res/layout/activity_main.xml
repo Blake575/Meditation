@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#79aea9"
+    android:backgroundTint="#79aea9"
+    tools:context="com.blake575.simplemeditationtimer.MainActivity">
+
+
+    <RelativeLayout
+        android:layout_width="344dp"
+        android:layout_height="551dp"
+        android:background="#79aea9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/Start"
+            android:layout_width="188dip"
+            android:layout_height="100dip"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="#5FDE35"
+            android:backgroundTint="#b0d9d5"
+            android:text="@string/start"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="156dp"
+            tools:layout_editor_absoluteY="277dp" />
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="188dip"
+            android:layout_height="100dip"
+            android:layout_above="@id/Start"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="30dip"
+            android:gravity="center"
+            android:text="10:00"
+            android:textColor="#FFFF"
+            android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/Restart"
+            android:layout_width="188dip"
+            android:layout_height="100dip"
+            android:layout_alignLeft="@+id/Start"
+            android:layout_alignStart="@+id/Start"
+            android:layout_below="@+id/Start"
+            android:layout_marginTop="28dp"
+            android:background="#EFB38F"
+            android:backgroundTint="#b0d9d5"
+            android:text="Restart"
+            android:textSize="30sp" />
+
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
