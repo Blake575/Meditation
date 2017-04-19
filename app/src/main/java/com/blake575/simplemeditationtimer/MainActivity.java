@@ -25,9 +25,13 @@ public class MainActivity extends AppCompatActivity {
         clicker.setOnClickListener(new View.OnClickListener() {
 
                 public void onClick(View v){
+
                     isGoing = true;
+                    final MediaPlayer bell = MediaPlayer.create(MainActivity.this,R.raw.chime_bell_ding);
+                    final MediaPlayer pad = MediaPlayer.create(MainActivity.this,R.raw.pad_confirm);
                     CountDownTimer timer;
                     restart.setEnabled(true);
+                    bell.start();
                     new CountDownTimer(600000, 1000) {
                         public void onTick(long millisUntilFinished) {
                             if(isGoing){
@@ -35,7 +39,12 @@ public class MainActivity extends AppCompatActivity {
                             int seconds = (int) (millisUntilFinished / 1000);
                             int minutes = seconds / 60;
                             seconds = seconds % 60;
-                            label.setText(minutes + ":" + seconds);
+                                if(seconds >= 10) {
+                                    label.setText(minutes + ":" + seconds);
+                                }
+                                else {
+                                    label.setText(minutes + ":" + 0 + seconds);
+                                }
                         }
                         else{
                                 cancel();
@@ -44,12 +53,12 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         public void onFinish() {
+
+                            pad.start();
                             clicker.setEnabled(true);
                             restart.setEnabled(false);
-                            MediaPlayer je = MediaPlayer.create(MainActivity.this,R.raw.je);
-                            je.start();
+
                             label.setText("10:00");
-                            cancel();
                         }
                     }.start();
 
@@ -62,9 +71,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 isGoing = false;
-                clicker.setEnabled(true);
                 restart.setEnabled(false);
                 label.setText("10:00");
+                new CountDownTimer(500,1000){
+                    public void onFinish(){
+                        clicker.setEnabled(true);
+                    }
+                    public void onTick(long millisUntilFinished){}
+                }.start();
+
             }
         });
 
